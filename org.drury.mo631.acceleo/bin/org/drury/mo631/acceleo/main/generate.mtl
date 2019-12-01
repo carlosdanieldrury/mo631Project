@@ -1,0 +1,69 @@
+[comment encoding = UTF-8 /]
+[module generate('http://org.drury.mo631/druryMO631')]
+
+[template public generateElement(aViewGroup : ViewGroup)]
+[comment @main/]
+[file ('android_view.xml', false, 'UTF-8')]
+	<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+	
+	<androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+		[for (v : View | aViewGroup.views)]
+[generateView(v)/]
+		[/for]
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+[/file]
+[/template]
+
+[template public generateView(view: View)]
+	
+		[viewBody(view)/]
+[/template]
+
+[template public generateView(view: Button)]
+	<androidx.appcompat.widget.AppCompatButton
+		[viewBody(view)/]
+[/template]
+
+[template public generateView(view: TextView)]
+	<androidx.appcompat.widget.AppCompatTextView
+		[viewBody(view)/]
+[/template]
+
+[template public generateView(view: EditText)]
+	<androidx.appcompat.widget.AppCompatEditText
+		[viewBody(view)/]
+[/template]
+
+[template public viewBody(view: View)]
+	android:id="@+id/[view.id/]"
+        android:layout_width="[view.layout_width/]"
+        android:layout_height="[view.layout_height/]"
+		android:text="[view.text/]"
+		[if (not view.start.oclIsUndefined())]app:layout_constraintStart_to[positionKindToText(view.start.positionDestination) /][viewIdToText(view.start)/][/if]
+		[if (not view.end.oclIsUndefined())]app:layout_constraintEnd_to[ positionKindToText(view.end.positionDestination) /][viewIdToText(view.end)/][/if]
+		[if (not view.top.oclIsUndefined())]app:layout_constraintTop_to[ positionKindToText(view.top.positionDestination) /][viewIdToText(view.top)/][/if]
+		[if (not view.bottom.oclIsUndefined())]app:layout_constraintBottom_to[ positionKindToText(view.bottom.positionDestination) /][viewIdToText(view.bottom)/][/if] />
+[/template]
+
+[template public positionKindToText(positionKind: PositionKind)]
+[if (positionKind = PositionKind::STARTOF)]StartOf
+[elseif (positionKind = PositionKind::ENDOF)]EndOf
+[elseif (positionKind = PositionKind::TOPOF)]TopOf
+[else]BottomOf
+[/if]
+
+[/template]
+
+
+[template public viewIdToText(position : Position)]
+[if (position.view.oclIsUndefined())]="parent"[else]="@+id/[position.view.id/]"[/if]
+[/template]

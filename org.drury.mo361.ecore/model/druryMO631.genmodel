@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.drury.mo631/src-gen" creationIcons="false"
+    editDirectory="/org.drury.mo631.edit/src-gen" editorDirectory="/org.drury.mo631.editor/src-gen"
+    modelPluginID="org.drury.mo631" modelName="drurymo631" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" testsDirectory="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" editPluginID="org.drury.mo631.edit"
+    editorPluginID="org.drury.mo631.editor" testsPluginID="org.drury.mo631.tests"
+    operationReflection="true" importOrganizing="true" pluginKey="drurymo631">
+  <foreignModel>druryMO631.ecore</foreignModel>
+  <genPackages prefix="project" basePackage="org.drury.mo631" disposableProviderFactory="true"
+      ecorePackage="druryMO631.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="druryMO631.ecore#//PositionKind">
+      <genEnumLiterals ecoreEnumLiteral="druryMO631.ecore#//PositionKind/STARTOF"/>
+      <genEnumLiterals ecoreEnumLiteral="druryMO631.ecore#//PositionKind/ENDOF"/>
+      <genEnumLiterals ecoreEnumLiteral="druryMO631.ecore#//PositionKind/TOPOF"/>
+      <genEnumLiterals ecoreEnumLiteral="druryMO631.ecore#//PositionKind/BOTTOMOF"/>
+    </genEnums>
+    <genClasses dynamic="true" ecoreClass="druryMO631.ecore#//ViewGroup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference druryMO631.ecore#//ViewGroup/views"/>
+    </genClasses>
+    <genClasses ecoreClass="druryMO631.ecore#//View">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute druryMO631.ecore#//View/text"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference druryMO631.ecore#//View/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference druryMO631.ecore#//View/end"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference druryMO631.ecore#//View/top"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference druryMO631.ecore#//View/bottom"/>
+    </genClasses>
+    <genClasses ecoreClass="druryMO631.ecore#//Button"/>
+    <genClasses ecoreClass="druryMO631.ecore#//TextView"/>
+    <genClasses ecoreClass="druryMO631.ecore#//EditText"/>
+    <genClasses ecoreClass="druryMO631.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute druryMO631.ecore#//Element/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute druryMO631.ecore#//Element/layout_width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute druryMO631.ecore#//Element/layout_height"/>
+    </genClasses>
+    <genClasses ecoreClass="druryMO631.ecore#//Position">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute druryMO631.ecore#//Position/positionDestination"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference druryMO631.ecore#//Position/view"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

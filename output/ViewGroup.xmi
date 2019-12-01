@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project:ViewGroup
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:project="http://org.drury.mo631/druryMO631"
+    xsi:schemaLocation="http://org.drury.mo631/druryMO631 ../org.drury.mo361.ecore/model/druryMO631.ecore">
+  <views xsi:type="project:Button"
+      id="button"
+      layout_width="wrap_content"
+      layout_height="wrap_content"
+      text="Botão">
+    <start/>
+    <end positionDestination="ENDOF"/>
+    <top positionDestination="TOPOF"/>
+  </views>
+  <views xsi:type="project:TextView"
+      id="text_view"
+      layout_width="match_parent"
+      layout_height="wrap_content"
+      text="Texto">
+    <start/>
+    <end positionDestination="ENDOF"/>
+    <top positionDestination="BOTTOMOF"
+        view="//@views.0"/>
+  </views>
+  <views xsi:type="project:EditText"
+      id="edit_text"
+      layout_width="wrap_content"
+      layout_height="wrap_content"
+      text="Edit Text">
+    <start/>
+    <end positionDestination="ENDOF"/>
+    <top positionDestination="BOTTOMOF"
+        view="//@views.1"/>
+  </views>
+</project:ViewGroup>

@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.drury.mo631.project.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: org.drury.mo631.project.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.drury.mo631.project.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.drury.mo361.ecore,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
